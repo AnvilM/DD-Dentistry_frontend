@@ -12,6 +12,7 @@ import DentistsPageComponent from './components/Dentists/DentistsPageComponent.v
 import AboutPageComponent from './components/About/AboutPageComponent.vue'
 import ContactsPageComponent from './components/Contacts/ContactsPageComponent.vue'
 import AppointmentPageComponent from './components/Appointment/AppointmentPageComponent.vue'
+import DentistPageComponent from './components/Dentist/DentistPageComponent.vue'
 
 const router = createRouter({
     history: createWebHistory(),
@@ -19,32 +20,42 @@ const router = createRouter({
         {
             name: 'Home',
             path: '/',
-            component: MainComponent
+            component: () => import('./components/Main/MainComponent.vue')
         },
         {
             name: 'Services',
             path: '/services',
-            component: ServicesPageComponent
+            component: () => import('./components/Services/ServicesPageComponent.vue')
+        },
+        {
+            name: 'Service',
+            path: '/service/:id',
+            component: () => import('./components/Service/ServicePageComponent.vue')
         },
         {
             name: 'Dentists',
             path: '/dentists',
-            component: DentistsPageComponent
+            component: () => import('./components/Dentists/DentistsPageComponent.vue')
+        },
+        {
+            name: 'Dentist',
+            path: '/dentist/:id',
+            component: () => import('./components/Dentist/DentistPageComponent.vue')
         },
         {
             name: 'About',
             path: '/about',
-            component: AboutPageComponent
+            component: () => import('./components/About/AboutPageComponent.vue')
         },
         {
             name: 'Contacts',
             path: '/contacts',
-            component: ContactsPageComponent
+            component: () => import('./components/Contacts/ContactsPageComponent.vue')
         },
         {
             name: 'Appointment',
             path: '/appointment',
-            component: AppointmentPageComponent
+            component: () => import('./components/Appointment/AppointmentPageComponent.vue')
         }
 ]
 })

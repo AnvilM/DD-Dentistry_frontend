@@ -1,5 +1,6 @@
 <script setup>
     import ServiceComponent from '../ServiceComponent.vue';
+    import axios from 'axios';
 </script>
 
 <template>
@@ -11,14 +12,28 @@
             </div>
             <input type="text" class="w-full border-2 rounded-[5px] h-[30px] outline-none px-5 py-2 mt-5" placeholder="Поиск">
             <div class="w-full [&>*]:mt-5">
-                <ServiceComponent/>
-                <ServiceComponent/>
-                <ServiceComponent/>
-                <ServiceComponent/>
+                <ServiceComponent v-if="loaded" v-for="service in services" :id="service.id" :name="service.name" :dentists="service.dentists" :description="service.description" :price="service.price"/>
             </div>
         </div>
     </div>
 </template>
 
+<script>
+export default{
+    data(){
+        return{
+            loaded: false,
+            services: {}
+        }
+    },
+
+    mounted(){
+        axios.get('http://localhost:8000/api/public/service').then((response) => {
+            this.services = response.data
+            this.loaded = true;
+        })
+    }
+}
+</script>
 
 
