@@ -1,39 +1,87 @@
 <script setup>
     import ServiceComponent from '../ServiceComponent.vue'
+    import axios from 'axios';
 </script>
 
 <template>
     <div class="wrapper all-roboto">
-        <div>
-            <div class="flex justify-between border border-gray-200 w-full p-5 [&>*+*]:ml-5">
+        <div class="w-full">
+            <div v-if="loaded" class="flex justify-between border border-gray-200 w-full p-5 [&>*+*]:ml-5">
                 <div class="w-1/2">
                     <img class="w-full h-full" src="https://stomatologia-n.ru/upload/iblock/311/311a9d536c32a96824b0b85ceb90f7d4.jpg" alt="">
                 </div>
                 <div class="w-1/2 [&>*+*]:mt-10">
-                    <div class="text-3xl font-semibold">Краевская Наталья Трофимовна</div>
+                    <div class="text-3xl font-semibold">{{ dentist.name }}</div>
                     <div>
-                        <div class="text-sm text-gray-500">О себе</div>
-                        <div class="">Главный врач. Врач-стоматолог-терапевт, ортопед.</div>
+                        <div class="text-sm text-gray-500">Должность</div>
+                        <div class="">{{ dentist.position }}</div>
                     </div>
 
                     <div>
                         <div class="text-sm text-gray-500">О себе</div>
-                        <div class="">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Animi enim alias neque consequatur soluta ipsum magni sit, aliquam perferendis nulla repellat voluptatibus ducimus earum! Reiciendis ab eligendi adipisci dignissimos ipsa?</div>
+                        <div class="">{{ dentist.bio }}</div>
                     </div>
                 </div>
             </div>
 
-            <input type="text" class="w-full border border-slate-500 h-[30px] outline-none px-5 py-4 mt-5 mb-5" placeholder="Поиск">
+            <input @input="search($event.target.value)" type="text" class="w-full border border-slate-500 h-[30px] outline-none px-5 py-4 mt-5 mb-5" placeholder="Поиск">
 
             <div class="w-full [&>*+*]:mt-5">
-                <ServiceComponent/>
-                <ServiceComponent/>
-                <ServiceComponent/>
-                <ServiceComponent/>
+                <ServiceComponent ref="serviceComponent" v-if="loaded" v-for="service in services" :id="service.id" :name="service.name" :description="service.description"/>
             </div>
         </div>
     </div>
 </template>
+
+
+<script>
+export default{
+    data(){
+        return{
+            loaded: false,
+            dentist: {},
+            services: [],
+        }
+    },
+
+    mounted(){
+        axios.get('http://localhost:8000/api/public/dentist/' + this.$route.params.id).then((response) => {
+            this.dentist = response.data
+
+            let servicesIds = this.dentist.services.match(/\[(.*)\]/);
+            servicesIds = servicesIds[1].split(',');
+
+            servicesIds.forEach(element => {
+                axios.get('http://localhost:8000/api/public/service/' + element).then((response) => {
+                    this.services.push(response.data)
+                })
+            })
+            this.loaded = true;
+        })
+    },
+
+    methods:{
+        search(value){
+            if(value == ''){
+                this.$refs.serviceComponent.forEach(el => {
+                    el.$el.classList.remove('hidden')
+                })
+            }
+            else{
+                this.$refs.serviceComponent.forEach(el => {
+                    if(el.name.search(value) == -1 && el.description.search(value) == -1){
+                        el.$el.classList.add('hidden')
+                    }
+                    else{
+                        el.$el.classList.remove('hidden')
+                    }
+                })
+            }
+            
+        }
+    }
+}
+</script>
 
 
 

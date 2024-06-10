@@ -38,7 +38,6 @@ export default{
 
                 cur.push(response.data[i])
             }
-            console.log(this.dentists)
             this.loaded = true;
         })
     }
