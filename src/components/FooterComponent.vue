@@ -8,7 +8,7 @@
 <template>
     <div class="wrapper bg-gray-200 mt-12 py-20">
         <div>
-            <div class="flex justify-between [&>*]:w-1/3">
+            <div class="flex justify-between [&>*]:w-1/3 [&>*]:px-5">
                 <div class="felx flex-col [&>*+*]:mt-5">
                     <div class="flex items-center mr-10">
                         <div class="mr-2 w-[20px] items-center justify-center">
@@ -18,7 +18,7 @@
                     </div>
 
                     <div class="flex items-center">
-                        <div class="mr-2 w-[20px] items-center justify-center">
+                        <div class="mr-2 w-[40px] items-center justify-center">
                             <LocationIconComponent/>
                         </div>
                         <div>ООО «Стоматология» Адрес: 346400 г. Новочеркасск ул. Комитетская 1, 2 этаж.</div>

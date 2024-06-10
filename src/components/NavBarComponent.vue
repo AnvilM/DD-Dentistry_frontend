@@ -32,38 +32,25 @@ import PhoneIconComponent from './icons/PhoneIconComponent.vue';
 
     <div class="wrapper w-full">
         <div class="w-full h-[40px] [&>*]:h-full font-semibold [&>*]:cursor-pointer flex items-center justify-start [&>*]:flex [&>*]:items-center [&>*]:duration-200">
-            <div class="hover:bg-green-500 px-5 group [&>*]:duration-200">
+            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200">
                 <div class="group-hover:mb-2">Главная</div>
             </div>
-            <div class="hover:bg-green-500 px-5 group [&>*]:duration-200 ml-4">
+            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
                 <div class="group-hover:mb-2">Наши услуги</div>
             </div>
-            <div class="hover:bg-green-500 px-5 group [&>*]:duration-200 ml-4">
+            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
                 <div class="group-hover:mb-2">Специалисты клиники</div>
             </div>
-            <div class="hover:bg-green-500 px-5 group [&>*]:duration-200 ml-4">
+            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
                 <div class="group-hover:mb-2">Контакты</div>
             </div>
-            <div class="hover:bg-green-500 px-5 group [&>*]:duration-200 ml-4">
+            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
                 <div class="group-hover:mb-2">О нас</div>
             </div>
 
-            <div class="hover:bg-green-500 px-5 group [&>*]:duration-200 ml-auto">
+            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-auto">
                 <div class="group-hover:mb-2">Запись онайлн</div>
             </div>
         </div>
-
-
-        <!-- <div class="w-full flex justify-between items-center all-roboto h-[50px] bg-red-100">
-            <div class="min-h-[35px] h-[35px] flex items-center [&>*+*]:ml-5 [&>*]:cursor-pointer [&>*]:font-medium [&>*]:duration-100 [&>*]:ease-out">
-                <div class="hover:mb-2 ">Главная</div>
-                <div class="hover:mb-2 ">Услуги</div>
-                <div class="hover:mb-2 ">Специалисты</div>
-                <div class="hover:mb-2">О нас</div>
-                <div class="hover:mb-2">Контакты</div>
-            </div>
-
-            <div class="cursor-pointer font-bold border-b-[2px] border-[#0a9dff00] hover:border-[#0a9dff] duration-200 ease-out">Запись онлайн</div>
-        </div> -->
     </div>
 </template>

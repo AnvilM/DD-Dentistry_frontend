@@ -7,6 +7,8 @@ import DentistsPageComponent from './components/Dentists/DentistsPageComponent.v
 import ContactsPageComponent from './components/Contacts/ContactsPageComponent.vue'
 import AboutPageComponent from './components/About/AboutPageComponent.vue'
 import AppointmentPageComponent from './components/Appointment/AppointmentPageComponent.vue'
+import ServicePageComponent from './components/Service/ServicePageComponent.vue'
+import DentistPageComponent from './components/Dentist/DentistPageComponent.vue'
 
 </script>
 
@@ -14,7 +16,7 @@ import AppointmentPageComponent from './components/Appointment/AppointmentPageCo
     <NavBarComponent/>
 
 
-    <AppointmentPageComponent class="mt-12"/>
+    <DentistPageComponent class="mt-12"/>
 
     <FooterComponent class="mt-12"/>
 

@@ -3,7 +3,7 @@
         <div class="w-full h-20 bg-white mt-auto flex flex-col items-center group-hover:h-[140px] duration-200">
             <div class="name text-[18px] font-medium">Lorem, ipsum dolor.</div>
             <div class="text-center">Главный врач. Врач-стоматолог-терапевт, ортопед.</div>
-            <div class="text-white mt-auto mb-5 rounded-[10px] px-5 py-2 bg-green-700 opacity-0 group-hover:opacity-100 duration-200">Записаться</div>
+            <div class="text-white mt-auto mb-5 px-5 py-2 bg-slate-500 opacity-0 group-hover:opacity-100 duration-200">Записаться</div>
         </div>
     </div>
 </template>
