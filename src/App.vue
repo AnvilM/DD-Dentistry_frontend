@@ -9,14 +9,15 @@ import AboutPageComponent from './components/About/AboutPageComponent.vue'
 import AppointmentPageComponent from './components/Appointment/AppointmentPageComponent.vue'
 import ServicePageComponent from './components/Service/ServicePageComponent.vue'
 import DentistPageComponent from './components/Dentist/DentistPageComponent.vue'
+import axios from 'axios'
 
 </script>
 
 <template>
     <NavBarComponent/>
 
-
-    <DentistPageComponent class="mt-12"/>
+    <RouterView/>
+    
 
     <FooterComponent class="mt-12"/>
 

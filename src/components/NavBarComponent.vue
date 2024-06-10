@@ -30,27 +30,28 @@ import PhoneIconComponent from './icons/PhoneIconComponent.vue';
         </div>
     </div>
 
-    <div class="wrapper w-full">
+    <div class="wrapper w-full mb-12">
         <div class="w-full h-[40px] [&>*]:h-full font-semibold [&>*]:cursor-pointer flex items-center justify-start [&>*]:flex [&>*]:items-center [&>*]:duration-200">
-            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200">
+            <RouterLink to="/" class="hover:bg-slate-500 px-5 group [&>*]:duration-200">
                 <div class="group-hover:mb-2">Главная</div>
-            </div>
-            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
+                
+            </RouterLink>
+            <RouterLink to="/services" class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
                 <div class="group-hover:mb-2">Наши услуги</div>
-            </div>
-            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
+            </RouterLink>
+            <RouterLink to="/dentists" class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
                 <div class="group-hover:mb-2">Специалисты клиники</div>
-            </div>
-            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
+            </RouterLink>
+            <RouterLink to="/contacts" class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
                 <div class="group-hover:mb-2">Контакты</div>
-            </div>
-            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
+            </RouterLink>
+            <RouterLink to="/about" class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
                 <div class="group-hover:mb-2">О нас</div>
-            </div>
+            </RouterLink>
 
-            <div class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-auto">
+            <RouterLink to="/appointment"class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-auto">
                 <div class="group-hover:mb-2">Запись онайлн</div>
-            </div>
+            </RouterLink>
         </div>
     </div>
 </template>
