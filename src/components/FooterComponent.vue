@@ -21,7 +21,7 @@
                         <div class="mr-2 w-[40px] items-center justify-center">
                             <LocationIconComponent/>
                         </div>
-                        <div>ООО «Стоматология» Адрес: 346400 г. Новочеркасск ул. Комитетская 1, 2 этаж.</div>
+                        <div>ООО  «Зубная фея» Адрес: 346400 г. Новочеркасск ул. Комитетская 1, 2 этаж.</div>
                     </div>
 
                     <div class="flex items-center ml-auto">
@@ -40,11 +40,11 @@
                 </div>
 
                 <div class="felx flex-col [&>*+*]:mt-5">
-                    <div class="link">Главная</div>
-                    <div class="link">Услуги</div>
-                    <div class="link">Наши спецаилисты</div>
-                    <div class="link">Контакты</div>
-                    <div class="link">О нас</div>
+                    <RouterLink to="/" class="link">Главная</RouterLink>
+                    <RouterLink to="/services" class="link">Услуги</RouterLink>
+                    <RouterLink to="/dentists" class="link">Наши спецаилисты</RouterLink>
+                    <RouterLink to="/contacts" class="link">Контакты</RouterLink>
+                    <RouterLink to="/about" class="link">О нас</RouterLink>
                 </div>
 
                 <div class="felx flex-col [&>*+*]:mt-5">

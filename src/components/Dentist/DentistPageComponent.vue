@@ -24,6 +24,9 @@
                 </div>
             </div>
 
+            <div class="text-3xl font-semibold mt-5">Услуги специалиста</div>
+            <div class="w-full [&>p+p]:mt-5 [&>*]:text-gray-700 pr-5">Список услуг, предоставляемых данным специалистом.</div>
+
             <input @input="search($event.target.value)" type="text" class="w-full border border-slate-500 h-[30px] outline-none px-5 py-4 mt-5 mb-5" placeholder="Поиск">
 
             <div class="w-full [&>*+*]:mt-5">

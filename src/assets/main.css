@@ -6,6 +6,11 @@ body{
   font-family: "Nunito", sans-serif;
 }
 
+*{
+  user-select: none;
+}
+
+
 #app{
   width: 100%;
 }
