@@ -10,7 +10,7 @@ import DescriptionComponent from './DescriptionComponent.vue'
         <div v-if="loaded" class="flex flex-col">
             <div class="text-3xl font-semibold mb-2">{{ service.name }}</div>
             <div class="w-full">
-                <img class="w-full" src="https://stomatologia-n.ru/upload/iblock/e9e/e9ebc6b55fc304202355648062dcb4da.jpg" alt="">
+                <img class="w-full" :src="service.image" alt="">
                 <div class="mt-5 mb-5 [&>*+*]:ml-2 flex">
                     <div @click="setPage('description')" class="px-5 py-3 border border-slate-500 hover:shadow-md duration-200 cursor-pointer text-center">Описание</div>
                     <div @click="setPage('price')" class="px-5 py-3 border border-slate-500 hover:shadow-md duration-200 cursor-pointer text-center">Цены</div>
@@ -39,7 +39,7 @@ export default{
     },
 
     mounted(){
-        axios.get('http://localhost:8000/api/public/service/' + this.$route.params.id).then((response) => {
+        axios.get('http://localhost/api/public/service/' + this.$route.params.id).then((response) => {
             this.service = response.data
             this.loaded = true;
         })

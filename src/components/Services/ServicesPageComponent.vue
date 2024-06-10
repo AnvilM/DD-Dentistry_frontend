@@ -12,7 +12,7 @@
             </div>
             <input @input="search($event.target.value)" type="text" class="w-full border-2 rounded-[5px] h-[30px] outline-none px-5 py-2 mt-5" placeholder="Поиск">
             <div class="w-full [&>*]:mt-5">
-                <ServiceComponent ref="serviceComponent" v-if="loaded" v-for="service in services" :id="service.id" :name="service.name" :dentists="service.dentists" :description="service.description" :price="service.price"/>
+                <ServiceComponent ref="serviceComponent" v-if="loaded" v-for="service in services" :id="service.id" :name="service.name" :description="service.description" :image="service.image"/>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@ export default{
     },
 
     mounted(){
-        axios.get('http://localhost:8000/api/public/service').then((response) => {
+        axios.get('http://localhost/api/public/service').then((response) => {
             this.services = response.data
             this.loaded = true;
         })

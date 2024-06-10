@@ -26,7 +26,7 @@ export default{
         let dentistsIds = this.dentistsIds.match(/\[(.*)\]/);
         dentistsIds = dentistsIds[1].split(',');
         dentistsIds.forEach(element => {
-            axios.get('http://localhost:8000/api/public/dentist/' + element).then((response) => {
+            axios.get('http://localhost/api/public/dentist/' + element).then((response) => {
                 this.dentists.push(response.data)
             })
         });

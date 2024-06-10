@@ -54,7 +54,7 @@ export default{
 
             if(this.nameString != '' && this.phoneString != ''){
 
-                axios.post('http://localhost:8000/api/public/appointment', {dentist: 1, service: 1, name: this.nameString, phone: this.phoneString}).then(response => {
+                axios.post('http://localhost/api/public/appointment', {dentist: 1, service: 1, name: this.nameString, phone: this.phoneString}).then(response => {
                     if(response.status == 200){
                         this.ok()
                     }

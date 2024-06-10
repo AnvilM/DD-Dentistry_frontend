@@ -34,8 +34,8 @@
             </div>
             <div class="mb-10">У нас вы можете пройти комплексное обследование, получить консультацию любого специалиста (врача стоматолога терапевта, ортопеда, хирурга, ортодонта). Запишитесь на прием и доктор подберет для вас индивидуальный план лечения!</div>
             <div class="flex flex-col [&>*+*]:mt-5">
-                <div class="aboba flex items-center justify-evenly w-full [&>*+*]:ml-5" v-if="servicesLoaded" v-for="line in services" @click="console.log(line)">
-                    <ServiceComponent v-for="service in line" :id="service.id" :name="service.name" :description="service.description"/>
+                <div class="aboba flex items-center justify-evenly w-full [&>*+*]:ml-5" v-if="servicesLoaded" v-for="line in services">
+                    <ServiceComponent v-for="service in line" :id="service.id" :name="service.name" :description="service.description" :image="service.image"/>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@
             </div>
             <div class="mb-10">Попасть в команду стоматологов нашей клиники могут только лучшие специалисты с многолетней практикой и доказанным опытом. Наши врачи не только лечат. Они помогают сохранить здоровье Вашей полости рта и находят подход и к взрослым, и детям.</div>
             <div class="w-full flex justify-between">
-                <DentistComponent v-if="dentistsLoaded" v-for="dentist in dentists" :id="dentist.id" :name="dentist.name" :position="dentist.position"/>
+                <DentistComponent v-if="dentistsLoaded" v-for="dentist in dentists" :id="dentist.id" :name="dentist.name" :position="dentist.position" :image="dentist.image"/>
             </div>
         </div>
     </div>
@@ -74,7 +74,7 @@ export default{
 
     methods: {
         loadDentists(){
-            axios.get('http://localhost:8000/api/public/dentist').then((response) => {
+            axios.get('http://localhost/api/public/dentist').then((response) => {
                 for (let i = 0; i < response.data.length; i++) {
                     if(i == 3){
                         break;
@@ -88,7 +88,7 @@ export default{
         },
 
         loadServices(){
-            axios.get('http://localhost:8000/api/public/service').then((response) => {
+            axios.get('http://localhost/api/public/service').then((response) => {
                 let cur = []
                 for (let i = 0; i < response.data.length; i++) {
                     if(i%2 == 0 && i != 0){

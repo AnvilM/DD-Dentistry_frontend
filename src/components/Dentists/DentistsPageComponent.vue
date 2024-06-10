@@ -9,8 +9,8 @@
             <div class="text-3xl font-semibold mb-2">Специалисты нашей клиники.</div>
             
             <div class="w-full [&>*+*]:mt-10">
-                <div class="flex justify-between" v-for="array in dentists">
-                    <DentistComponent v-for="dentist in array" :id="dentist.id" :name="dentist.name" :position="dentist.position" :bio="dentist.bio" services="dentist.services"/>
+                <div class="flex [&>*+*]:ml-12" v-for="array in dentists">
+                    <DentistComponent v-for="dentist in array" :id="dentist.id" :name="dentist.name" :position="dentist.position" :bio="dentist.bio" :image="dentist.image"/>
                 </div>
             </div>
         </div>
@@ -28,7 +28,7 @@ export default{
     },
 
     mounted(){
-        axios.get('http://localhost:8000/api/public/dentist').then((response) => {
+        axios.get('http://localhost/api/public/dentist').then((response) => {
             let cur = [];
             for (let i = 0; i < response.data.length; i++) {
                 if(i%3 == 0){
@@ -38,6 +38,7 @@ export default{
 
                 cur.push(response.data[i])
             }
+            this.dentists.push(cur);
             this.loaded = true;
         })
     }
