@@ -21,6 +21,8 @@
                     <div class="w-full [&>p+p]:mt-5 [&>*]:text-gray-700 pr-5">Заполните форму, что бы мы могли связаться с вами.</div>
                     <input v-model="nameString" ref="nameInput" type="text" class="border-b-2 border-black outline-none px-5 py-2 focus:border-slate-500" placeholder="Ваше ФОИ">
                     <input v-model="phoneString" ref="phoneInput" type="tel" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" class="border-b-2 border-black outline-none px-5 py-2 focus:border-slate-500 mb-5" placeholder="Номер телефона">
+                    <input v-model="dentistString" ref="dentistInput" type="text" class="border-b-2 border-black outline-none px-5 py-2 focus:border-slate-500 mb-5" placeholder="ФИО Специалиста">
+                    <input v-model="serviceString" ref="serviceInput"type="text" class="border-b-2 border-black outline-none px-5 py-2 focus:border-slate-500 mb-5" placeholder="Название услуги">
                     <div class="w-full flex justify-center">
                         <button @click="makeAppointment" class="bg-slate-500 px-5 py-2 text-white">Записаться</button>
                     </div>
@@ -36,6 +38,8 @@ export default{
         return {
             nameString: '',
             phoneString: '',
+            dentistString: '',
+            serviceString: '',
 
             maked: false
         }
@@ -52,23 +56,35 @@ export default{
                 this.phoneError()
             }
 
-            if(this.nameString != '' && this.phoneString != ''){
+            axios.get('http://localhost/api/public/dentist').then(response => {
+                response.data.forEach(dentistEl => {
+                    if(this.dentistString == dentistEl.name){
+                        axios.get('http://localhost/api/public/service').then(response => {
+                            response.data.forEach(serviceEl => {
+                                if(this.serviceString == serviceEl.name){
+                                    if(this.nameString != '' && this.phoneString != ''){
+                                        axios.post('http://localhost/api/public/appointment', {dentist: 1, service: 1, name: this.nameString, phone: this.phoneString}).then(response => {
+                                            if(response.status == 200){
+                                                this.ok()
+                                                return
+                                            }
+                                        }).catch(response => {
+                                            response = JSON.parse(response.response.data)
+                                            if('phone' in response){
+                                                this.phoneError()
+                                            }
 
-                axios.post('http://localhost/api/public/appointment', {dentist: 1, service: 1, name: this.nameString, phone: this.phoneString}).then(response => {
-                    if(response.status == 200){
-                        this.ok()
+                                            if('name' in response){
+                                                this.nameError()
+                                            }
+                                        })
+                                    }
+                                }
+                            });
+                        })
                     }
-                }).catch(response => {
-                    response = JSON.parse(response.response.data)
-                    if('phone' in response){
-                        this.phoneError()
-                    }
-
-                    if('name' in response){
-                        this.nameError()
-                    }
-                })
-            }
+                });
+            })
         },
 
         phoneError(){

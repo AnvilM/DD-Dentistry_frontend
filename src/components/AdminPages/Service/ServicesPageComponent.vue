@@ -1,15 +1,15 @@
 <script setup>
-    import DentistComponent from './DentistComponent.vue';
+    import ServiceComponent from './ServiceComponent.vue';
     import axios from 'axios';
 </script>
 
 <template>
     <div class="wrapper all-roboto">
         <div class="flex flex-col w-full justify-center items-center">
-            <div class="text-3xl font-semibold mb-2 mr-auto">Список сотрудников</div>
+            <div class="text-3xl font-semibold mb-2 mr-auto">Список услуг</div>
             <input @input="search($event.target.value)" type="text" class="w-2/3 border-2 rounded-[5px] h-[30px] outline-none px-5 py-2 mt-5" placeholder="Поиск">
             <div class="w-2/3 [&>*]:mt-5">
-                <DentistComponent ref="dentistComponent" v-if="loaded" v-for="dentist in dentists" :id="dentist.id" :name="dentist.name" :position="dentist.position"/>
+                <ServiceComponent ref="serviceComponent" v-if="loaded" v-for="service in services" :id="service.id" :name="service.name" :position="service.position"/>
             </div>
         </div>
     </div>
@@ -21,18 +21,18 @@ export default{
     data(){
         return{
             loaded: false,
-            dentists: []
+            services: []
         }
     },
     methods:{
         search(value){
             if(value == ''){
-                this.$refs.dentistComponent.forEach(el => {
+                this.$refs.serviceComponent.forEach(el => {
                     el.$el.classList.remove('hidden')
                 })
             }
             else{
-                this.$refs.dentistComponent.forEach(el => {
+                this.$refs.serviceComponent.forEach(el => {
                     if(el.name.search(value) == -1){
                         el.$el.classList.add('hidden')
                     }
@@ -45,9 +45,9 @@ export default{
         }
     },
     mounted(){
-        axios.get('http://localhost/api/public/dentist', {headers: {Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then((response) => {
+        axios.get('http://localhost/api/public/service', {headers: {Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then((response) => {
             
-            this.dentists = response.data
+            this.services = response.data
             
             this.loaded = true;
         })

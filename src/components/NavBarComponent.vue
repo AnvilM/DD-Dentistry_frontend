@@ -2,6 +2,8 @@
 import ClockIconComponent from './icons/ClockIconComponent.vue';
 import LocationIconComponent from './icons/LocationIconComponent.vue';
 import PhoneIconComponent from './icons/PhoneIconComponent.vue';
+import LogoutIconComponent from './icons/LogoutIconComponent.vue';
+
 </script>
 
 <template>
@@ -51,9 +53,17 @@ import PhoneIconComponent from './icons/PhoneIconComponent.vue';
             <RouterLink to="/appointment"class="hover:bg-emerald-600 px-5 group [&>*]:duration-200 ml-auto">
                 <div class="group-hover:mb-2 group-hover:text-gray-200">Запись онайлн</div>
             </RouterLink>
-            <RouterLink v-if="admin" to="/admin"class="hover:bg-emerald-600 px-5 bg-emerald-500 group [&>*]:duration-200 ml-auto">
-                <div class="group-hover:mb-2 group-hover:text-gray-200">Панель администратора</div>
-            </RouterLink>
+            <div class="flex h-full" v-if="admin">
+                <RouterLink to="/admin"class="h-full flex items-center hover:bg-emerald-600 px-5 bg-emerald-500 group [&>*]:duration-200 ml-auto">
+                    <div class="group-hover:mb-2 group-hover:text-gray-200">Панель администратора</div>
+                </RouterLink>
+                <div class="h-full w-[40px] flex justify-center items-center hover:bg-emerald-600 bg-emerald-500" @click="logout()">
+                    <div class="w-[30px]">
+                        <LogoutIconComponent/>
+                    </div>
+                </div>
+            </div>
+                
         </div>
     </div>
 </template>
@@ -68,6 +78,12 @@ import PhoneIconComponent from './icons/PhoneIconComponent.vue';
         created(){
             if(localStorage.getItem('api_key') != null){
                 this.admin = true;
+            }
+        },
+        methods: {
+            logout(){
+                localStorage.removeItem('api_key')
+                window.location = '/'
             }
         }
     }

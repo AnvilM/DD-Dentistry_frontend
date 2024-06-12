@@ -75,7 +75,7 @@ export default{
             this.$refs.appointmentFormTitle.classList.add('text-emerald-600')
             this.$refs.appointmentFormTitle.innerHTML = 'Вход выполнен, переадресация...'
 
-            this.$router.push('/admin/appointments')
+            window.location = '/admin'
         },
 
         bad(){

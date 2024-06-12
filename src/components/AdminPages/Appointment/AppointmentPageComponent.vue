@@ -19,7 +19,15 @@
                     </div>
                     <div>
                         <div class="text-sm text-gray-500">Номер телефона</div>
-                        <a :href="'tel:' + appointment.phone">{{ appointment.phone }}</a>
+                        <a class="text-3xl font-semibold" :href="'tel:' + appointment.phone">{{ appointment.phone }}</a>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500">Специалист</div>
+                        <div class="text-3xl font-semibold">{{ dentist.name }}</div>
+                    </div>
+                    <div>
+                        <div class="text-sm text-gray-500">Услуга</div>
+                        <div class="text-3xl font-semibold">{{ service.name }}</div>
                     </div>
                 </div>
                 <div @click="deleteAppointment()" class="w-[40px] absolute top-0 right-0 mt-5 mr-5 cursor-pointer hover:bg-slate-300 duration-100 rounded-full p-1">
@@ -37,14 +45,21 @@ export default{
         return{
             loaded: false,
             appointment: {},
+            service: {},
+            dentist: {}
         }
     },
 
     mounted(){
-        axios.get('http://localhost/api/admin/appointment/' + this.$route.params.id, {headers: {Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then((response) => {
+        axios.get('http://localhost/api/admin/appointment/' + this.$route.params.id, {headers: { Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then((response) => {
             this.appointment = response.data
-
-            this.loaded = true;
+            axios.get('http://localhost/api/public/dentist/' + this.appointment.dentist_id, {headers: { Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then((response) => {
+                this.dentist = response.data
+                axios.get('http://localhost/api/public/service/' + this.appointment.service_id, {headers: { Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then((response) => {
+                    this.service = response.data
+                    this.loaded = true;
+                })
+            })
         })
     },
     created(){

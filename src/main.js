@@ -97,6 +97,18 @@ const router = createRouter({
             path: '/admin/service/create',
             component: () => import('./components/AdminPages/Service/ServiceCreatePageComponent.vue')
         }
+        ,
+        {
+            name: 'AdminServiceUpdate',
+            path: '/admin/service/:id/edit',
+            component: () => import('./components/AdminPages/Service/ServiceUpdatePageComponent.vue')
+        }
+        ,
+        {
+            name: 'AdminServiceUpdateList',
+            path: '/admin/services/',
+            component: () => import('./components/AdminPages/Service/ServicesPageComponent.vue')
+        }
 ]
 })
 

@@ -14,10 +14,10 @@
             <div class="w-full flex items-center justify-center mt-5">
                 <div ref="serviceCreateForm" class="w-[500px] h-full flex flex-col [&>*+*]:mt-5 border-[1px] p-5 duration-200">
                     <div class="flex justify-start items-center mb-2">
-                        <div class="w-[40px] mr-2" v-if="maked && !failed">
+                        <div class="w-[40px] mr-2" v-if="added && !failed">
                             <CheckedIconComponent/>
                         </div>
-                        <div class="w-[25px] mr-2" v-if="failed && !maked">
+                        <div class="w-[25px] mr-2" v-if="failed && !added">
                             <XIconComponent/>
                         </div>
                         <div ref="serviceCreateFormTitle" class="text-2xl font-semibold">Создание услуги</div>
@@ -82,7 +82,7 @@ export default{
 
             this.$refs.serviceCreateFormSubtitle.innerHTML = 'Введите данные новогй услуги'
 
-            axios.post('http://localhost/api/admin/service', {name: this.nameString, description: this.descriptionString, price: this.priceString, dentists: '['+this.dentistsString+']', image: this.imageString}, {headers: {Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then(response => {
+            axios.post('http://localhost/api/admin/service', {name: this.nameString, description: this.descriptionString, price: this.priceString, dentists: '['+this.dentistsString+']', image: this.imageString}, {headers: {  Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then(response => {
                     this.ok()
                 }).catch(response => {
                     response = response.response.data

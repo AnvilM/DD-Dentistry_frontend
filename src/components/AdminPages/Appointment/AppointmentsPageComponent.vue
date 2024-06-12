@@ -49,8 +49,13 @@ export default{
             this.$router.push('/admin/auth')
         }
         axios.get('http://localhost/api/admin/appointment', {headers: {Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then((response) => {
+            if('id' in response.data){
+                this.appointments.push(response.data);
+            }
+            else{
+                this.appointments = response.data
+            }
             
-            this.appointments = response.data
             
             this.loaded = true;
         }).catch(response => {
