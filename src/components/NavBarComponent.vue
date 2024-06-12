@@ -32,26 +32,43 @@ import PhoneIconComponent from './icons/PhoneIconComponent.vue';
 
     <div class="wrapper w-full mb-12">
         <div class="w-full h-[40px] [&>*]:h-full font-semibold [&>*]:cursor-pointer flex items-center justify-start [&>*]:flex [&>*]:items-center [&>*]:duration-200">
-            <RouterLink to="/" class="hover:bg-slate-500 px-5 group [&>*]:duration-200">
-                <div class="group-hover:mb-2">Главная</div>
-                
+            <RouterLink to="/" class="hover:bg-emerald-600 px-5 group [&>*]:duration-200">
+                <div class="group-hover:mb-2 group-hover:text-gray-200">Главная</div>
             </RouterLink>
-            <RouterLink to="/services" class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
-                <div class="group-hover:mb-2">Наши услуги</div>
+            <RouterLink to="/services" class="hover:bg-emerald-600 px-5 group [&>*]:duration-200 ml-4">
+                <div class="group-hover:mb-2 group-hover:text-gray-200">Наши услуги</div>
             </RouterLink>
-            <RouterLink to="/dentists" class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
-                <div class="group-hover:mb-2">Специалисты клиники</div>
+            <RouterLink to="/dentists" class="hover:bg-emerald-600 px-5 group [&>*]:duration-200 ml-4">
+                <div class="group-hover:mb-2 group-hover:text-gray-200">Специалисты клиники</div>
             </RouterLink>
-            <RouterLink to="/contacts" class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
-                <div class="group-hover:mb-2">Контакты</div>
+            <RouterLink to="/contacts" class="hover:bg-emerald-600 px-5 group [&>*]:duration-200 ml-4">
+                <div class="group-hover:mb-2 group-hover:text-gray-200">Контакты</div>
             </RouterLink>
-            <RouterLink to="/about" class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-4">
-                <div class="group-hover:mb-2">О нас</div>
+            <RouterLink to="/about" class="hover:bg-emerald-600 px-5 group [&>*]:duration-200 ml-4">
+                <div class="group-hover:mb-2 group-hover:text-gray-200">О нас</div>
             </RouterLink>
 
-            <RouterLink to="/appointment"class="hover:bg-slate-500 px-5 group [&>*]:duration-200 ml-auto">
-                <div class="group-hover:mb-2">Запись онайлн</div>
+            <RouterLink to="/appointment"class="hover:bg-emerald-600 px-5 group [&>*]:duration-200 ml-auto">
+                <div class="group-hover:mb-2 group-hover:text-gray-200">Запись онайлн</div>
+            </RouterLink>
+            <RouterLink v-if="admin" to="/admin"class="hover:bg-emerald-600 px-5 bg-emerald-500 group [&>*]:duration-200 ml-auto">
+                <div class="group-hover:mb-2 group-hover:text-gray-200">Панель администратора</div>
             </RouterLink>
         </div>
     </div>
 </template>
+
+<script>
+    export default{
+        data(){
+            return {
+                admin: false
+            }
+        },
+        created(){
+            if(localStorage.getItem('api_key') != ''){
+                this.admin = true;
+            }
+        }
+    }
+</script>

@@ -16,13 +16,10 @@ import axios from 'axios'
 <template>
     <NavBarComponent/>
 
-    <RouterView/>
+    <RouterView class="min-h-[100vh]"/>
     
 
     <FooterComponent class="mt-12"/>
 
 
 </template>
-
-
-

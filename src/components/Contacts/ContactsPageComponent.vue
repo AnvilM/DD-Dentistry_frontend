@@ -11,7 +11,7 @@
             <div class="text-3xl font-semibold mb-2">Контакты</div>
             
             <div class="w-full [&>*]:mt-5">
-                <div class="flex justify-between">
+                <a href="https://maps.app.goo.gl/nPNpW45hApuRAVpT6" class="flex justify-between">
                     <div class="px-10 py-5 flex border-[1px] border-gray-200 w-full hover:-translate-y-2 duration-200 hover:shadow-lg cursor-pointer">
                         <div class="">
                             <div class="text-lg font-semibold w-auto flex">
@@ -21,7 +21,7 @@
                             <div>ООО  «Зубная фея» Адрес: 346400 г. Новочеркасск ул. Комитетская 1, 2 этаж.<br>Время работы: пн-пт 8:00-15:00</div>
                         </div>
                     </div>
-                </div>
+                </a>
 
                 <a href="tel:+79991234567" class="flex justify-between">
                     <div class="px-10 py-5 flex border-[1px] border-gray-200 w-full hover:-translate-y-2 duration-200 hover:shadow-lg cursor-pointer">

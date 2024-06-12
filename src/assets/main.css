@@ -4,6 +4,8 @@ body{
   justify-content: center;
 
   font-family: "Nunito", sans-serif;
+
+  min-height: 100vh;
 }
 
 *{
@@ -13,6 +15,7 @@ body{
 
 #app{
   width: 100%;
+  height: 100%;
 }
 
 .wrapper{
@@ -30,6 +33,7 @@ body{
 .link{
   color: rgb(78, 78, 78);
   cursor: pointer;
+  display: block;
 }
 
 .link:hover{

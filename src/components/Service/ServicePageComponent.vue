@@ -7,7 +7,7 @@ import DescriptionComponent from './DescriptionComponent.vue'
 
 <template>
     <div class="wrapper all-roboto">
-        <div v-if="loaded" class="flex flex-col">
+        <div v-if="loaded" class="flex flex-col w-full">
             <div class="text-3xl font-semibold mb-2">{{ service.name }}</div>
             <div class="w-full">
                 <img class="w-full" :src="service.image" alt="">
@@ -17,9 +17,9 @@ import DescriptionComponent from './DescriptionComponent.vue'
                     <div @click="setPage('dentists')" class="px-5 py-3 border border-slate-500 hover:shadow-md duration-200 cursor-pointer text-center">Специалисты</div>
                 </div>
 
-                <DescriptionComponent v-if="this.selectedPage=='description'" :description="service.description"/>
-                <PriceComponent v-if="this.selectedPage=='price'" :name="service.name" :price="service.price"/>
-                <DentistsComponent v-if="this.selectedPage=='dentists'" :dentistsIds="service.dentists"/>
+                <DescriptionComponent v-if="selectedPage=='description'" :description="service.description"/>
+                <PriceComponent v-if="selectedPage=='price'" :name="service.name" :price="service.price"/>
+                <DentistsComponent v-if="selectedPage=='dentists'" :dentistsIds="service.dentists"/>
 
 
             </div>

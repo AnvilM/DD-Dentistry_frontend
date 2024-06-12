@@ -56,6 +56,36 @@ const router = createRouter({
             name: 'Appointment',
             path: '/appointment',
             component: () => import('./components/Appointment/AppointmentPageComponent.vue')
+        },
+        {
+            name: 'AdminAuth',
+            path: '/admin/auth',
+            component: () => import('./components/AdminPages/Auth/AuthPageComponent.vue')
+        },
+        {
+            name: 'AdminPage',
+            path: '/admin',
+            component: () => import('./components/AdminPages/AdminPageComponent.vue')
+        },
+        {
+            name: 'AdminAppointments',
+            path: '/admin/appointments',
+            component: () => import('./components/AdminPages/Appointment/AppointmentsPageComponent.vue')
+        },
+        {
+            name: 'AdminAppointment',
+            path: '/admin/appointment/:id',
+            component: () => import('./components/AdminPages/Appointment/AppointmentPageComponent.vue')
+        },
+        {
+            name: 'AdminDentistCreate',
+            path: '/admin/dentist/create',
+            component: () => import('./components/AdminPages/Dentist/DentistCreatePageComponent.vue')
+        },
+        {
+            name: 'AdminServiceCreate',
+            path: '/admin/service/create',
+            component: () => import('./components/AdminPages/Service/ServiceCreatePageComponent.vue')
         }
 ]
 })
