@@ -16,7 +16,7 @@ import axios from 'axios'
 <template>
     <NavBarComponent/>
 
-    <RouterView class="min-h-[100vh]"/>
+    <RouterView/>
     
 
     <FooterComponent class="mt-12"/>

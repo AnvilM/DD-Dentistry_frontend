@@ -45,7 +45,7 @@ export default{
         }
     },
     mounted(){
-        if(localStorage.getItem('api_key') == ''){
+        if(localStorage.getItem('api_key') == null){
             this.$router.push('/admin/auth')
         }
         axios.get('http://localhost/api/admin/appointment', {headers: {Authorization: 'Bearer ' + localStorage.getItem('api_key')}}).then((response) => {
@@ -58,7 +58,7 @@ export default{
         })
     },
     created(){
-        if(localStorage.getItem('api_key') == ''){
+        if(localStorage.getItem('api_key') == null){
             this.$router.push('/');
         }
     }

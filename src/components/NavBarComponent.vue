@@ -66,7 +66,7 @@ import PhoneIconComponent from './icons/PhoneIconComponent.vue';
             }
         },
         created(){
-            if(localStorage.getItem('api_key') != ''){
+            if(localStorage.getItem('api_key') != null){
                 this.admin = true;
             }
         }

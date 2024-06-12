@@ -48,7 +48,7 @@ export default{
         })
     },
     created(){
-        if(localStorage.getItem('api_key') == ''){
+        if(localStorage.getItem('api_key') == null){
             this.$router.push('/');
         }
     },

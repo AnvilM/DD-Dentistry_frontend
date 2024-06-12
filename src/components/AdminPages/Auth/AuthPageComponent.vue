@@ -56,7 +56,14 @@ export default{
                     localStorage.setItem('api_key', this.passString)
                     this.ok()
                 }).catch(response => {
-                    this.bad()
+                    console.log(response)
+                    if(response.response.status == 403){
+                        this.bad()
+                    }
+                    else{
+                        localStorage.setItem('api_key', this.passString)
+                        this.ok()
+                    }
                 })
             }
         },
