@@ -83,6 +83,16 @@ const router = createRouter({
             component: () => import('./components/AdminPages/Dentist/DentistCreatePageComponent.vue')
         },
         {
+            name: 'AdminDentistUpdateList',
+            path: '/admin/dentists',
+            component: () => import('./components/AdminPages/Dentist/DentistsPageComponent.vue')
+        },
+        {
+            name: 'AdminDentistUpdate',
+            path: '/admin/dentist/:id/edit',
+            component: () => import('./components/AdminPages/Dentist/DentistUpdatePageComponent.vue')
+        },
+        {
             name: 'AdminServiceCreate',
             path: '/admin/service/create',
             component: () => import('./components/AdminPages/Service/ServiceCreatePageComponent.vue')
